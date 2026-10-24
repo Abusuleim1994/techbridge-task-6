@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internship Roadmap | TechBridge</title>
+  <meta name="description" content="Choose a TechBridge internship track, Data Analytics or Web Development, and see its 8-task, 30-day practical roadmap.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER (same on every page) ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="TechBridge logo" class="logo">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="roadmap.html" class="active" aria-current="page">Internship Roadmap</a></li>
+          <li><a href="challenges.html">Challenges</a></li>
+	        <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="index.html#apply">How to apply</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- TODO: paste the same application form link you used before -->
+      <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" class="btn btn-primary" target="_blank" rel="noopener">Apply now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== 1. INTRODUCTION ========== -->
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="pill">30-Day Practical Internship</p>
+        <h1>Choose your track and see your journey</h1>
+        <p class="lead">
+          TechBridge offers a 30-day practical internship in two tracks. Select
+          Data Analytics or Web Development to see the 8 tasks you would complete.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 2. TRACK SELECTION ========== -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Choose your track</h2>
+
+        <!-- JavaScript listens for clicks on these two buttons.
+             data-track must match the "id" of a track in roadmap.js -->
+        <div class="track-switch" role="group" aria-label="Choose an internship track">
+          <button type="button" class="track-btn" data-track="data-analytics" aria-pressed="true">
+            Data Analytics
+            <small>Working with data</small>
+          </button>
+          <button type="button" class="track-btn" data-track="web-development" aria-pressed="false">
+            Web Development
+            <small>Building websites</small>
+          </button>
+        </div>
+
+        <!-- JavaScript changes the text inside these elements -->
+        <div class="viewing" aria-live="polite">
+          Currently viewing
+          <strong id="current-track">Data Analytics</strong>
+          <span id="track-tagline">Working with data and extracting insights</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. 30-DAY STRUCTURE ========== -->
+    <section class="section section-alt glance">
+      <div class="container">
+        <h2>The 30-day structure</h2>
+        <p>Each track has 8 tasks. The numbers show the day each task begins.</p>
+        <ol class="daybar" aria-hidden="true">
+          <li style="left:0%">1</li>
+          <li style="left:10.3%">4</li>
+          <li style="left:24.1%">8</li>
+          <li style="left:34.5%">11</li>
+          <li style="left:48.3%">15</li>
+          <li style="left:62.1%">19</li>
+          <li style="left:72.4%">22</li>
+          <li style="left:86.2%">26</li>
+          <li style="left:100%" class="end">30</li>
+        </ol>
+
+        <h3>How the difficulty grows</h3>
+        <ul class="legend">
+          <li><span class="level lvl-1"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Beginner</span></li>
+          <li><span class="level lvl-2"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Beginner → Intermediate</span></li>
+          <li><span class="level lvl-3"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Intermediate</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== 4. THE 8 TASKS (filled in by roadmap.js) ========== -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>The 8 tasks</h2>
+        <noscript><p>Please turn on JavaScript to view the internship roadmap.</p></noscript>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ========== 5. CALL TO ACTION ========== -->
+    <section class="section community">
+      <div class="container narrow">
+        <h2>Ready to begin your journey?</h2>
+        <p>Apply for the TechBridge Internship and pick the track that fits you.</p>
+        <div class="hero-actions">
+          <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" class="btn btn-accent" target="_blank" rel="noopener">Apply for TechBridge Internship</a>
+          <a href="programs.html" class="btn btn-outline">View programs</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER (same on every page) ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TechBridge</strong> by Baselink Services Limited
+        <p>Bridging Learning to Real-World Experience</p>
+      </div>
+      <p><a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink@gmail.com</a></p>
+    </div>
+    <p class="copyright">&copy; 2026 TechBridge by Baselink Services Limited</p>
+  </footer>
+
+  <!-- Load the JavaScript last, after the page elements exist -->
+  <script src="roadmap.js"></script>
+</body>
+</html>

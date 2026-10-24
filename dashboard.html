@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Dashboard | TechBridge</title>
+  <meta name="description" content="Track your TechBridge internship progress, view your 8 tasks, explore challenges and learn about modern web technologies.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER (same on every page) ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="TechBridge logo" class="logo">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="roadmap.html">Internship Roadmap</a></li>
+          <li><a href="challenges.html">Challenges</a></li>
+          <li><a href="dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- TODO: paste the same application form link you used before -->
+      <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" class="btn btn-primary" target="_blank" rel="noopener">Apply now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== A. WELCOME ========== -->
+    <!-- The empty spans are filled in by dashboard.js -->
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="pill" id="status-pill">Internship Status: In Progress</p>
+        <h1>Welcome back, <span id="intern-name">Alex</span></h1>
+        <p class="lead">
+          <span id="intern-track">Web Development</span> Intern. This is your TechBridge
+          dashboard: track your tasks, watch your progress grow and keep building real-world experience.
+        </p>
+        <p class="current-task" id="current-task-text"></p>
+        <p class="sample-note">Sample intern profile for demonstration</p>
+      </div>
+    </section>
+
+    <!-- ========== B. INTERNSHIP PROGRESS ========== -->
+    <section class="section section-alt">
+      <div class="container narrow">
+        <h2>Internship Progress</h2>
+        <div class="progress-card" aria-live="polite">
+          <p class="progress-summary"><strong id="completed-count">0</strong> / <span id="total-count">8</span> Tasks Completed</p>
+
+          <div class="progress" id="progress-bar" role="progressbar" aria-label="Internship progress"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+
+          <p class="progress-percent"><strong id="percent">0%</strong> complete</p>
+          <p class="remaining" id="remaining-text"></p>
+          <p class="progress-message" id="progress-message"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== C. TASK TRACKER ========== -->
+    <section class="section" id="tasks">
+      <div class="container">
+        <h2>Task Tracker</h2>
+
+        <div class="filters">
+          <div class="filter-group" role="group" aria-label="Filter tasks by status">
+            <span class="filter-label">Status</span>
+            <button type="button" class="chip-btn" data-value="all" aria-pressed="true">All</button>
+            <button type="button" class="chip-btn" data-value="completed" aria-pressed="false">Completed</button>
+            <button type="button" class="chip-btn" data-value="in-progress" aria-pressed="false">In Progress</button>
+            <button type="button" class="chip-btn" data-value="not-started" aria-pressed="false">Not Started</button>
+          </div>
+          <div class="filter-footer">
+            <p id="task-count" class="result-count" aria-live="polite"></p>
+            <button type="button" id="reset-progress" class="link-btn">Reset progress</button>
+          </div>
+        </div>
+
+        <noscript><p>Please turn on JavaScript to use the task tracker.</p></noscript>
+
+        <!-- dashboard.js builds the task cards inside this div -->
+        <div id="task-grid" class="task-grid"></div>
+
+        <div id="no-tasks" class="no-results" hidden>
+          <h3>No tasks here</h3>
+          <p>No tasks match this status yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== D. CHALLENGE HUB ========== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="promo">
+          <div>
+            <h2>Challenge Hub</h2>
+            <p>Practice with realistic Data Analytics and Web Development challenges, from Beginner to Advanced.</p>
+          </div>
+          <a href="challenges.html" class="btn btn-primary">Explore Challenges</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== E. MODERN WEB TECHNOLOGIES ========== -->
+    <section class="section" id="technologies">
+      <div class="container narrow">
+        <h2>Modern Web Technologies</h2>
+        <p>
+          A complete web platform is built from several technologies working together.
+          Select one to find out what it is and what it is used for.
+        </p>
+
+        <div class="tech-tabs" role="group" aria-label="Choose a technology">
+          <button type="button" class="chip-btn" data-tech="nextjs" aria-pressed="true">Next.js</button>
+          <button type="button" class="chip-btn" data-tech="vue" aria-pressed="false">Vue.js</button>
+          <button type="button" class="chip-btn" data-tech="angular" aria-pressed="false">Angular</button>
+          <button type="button" class="chip-btn" data-tech="backend" aria-pressed="false">Backend</button>
+        </div>
+
+        <!-- dashboard.js puts the selected technology here -->
+        <div id="tech-panel" class="tech-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== TASK DETAILS POP-UP (same pop-up style as the Challenge Hub) ========== -->
+  <dialog id="task-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-inner">
+      <button type="button" id="dialog-close" class="dialog-close" aria-label="Close task details">&times;</button>
+      <div id="dialog-body"></div>
+    </div>
+  </dialog>
+
+  <!-- ========== FOOTER (same on every page) ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TechBridge</strong> by Baselink Services Limited
+        <p>Bridging Learning to Real-World Experience</p>
+      </div>
+      <p><a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink@gmail.com</a></p>
+    </div>
+    <p class="copyright">&copy; 2026 TechBridge by Baselink Services Limited</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

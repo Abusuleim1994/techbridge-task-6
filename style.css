@@ -1,0 +1,794 @@
+/* ==========================================================
+   TECHBRIDGE STYLES
+   Tip: change the colors in :root below when logo changes.
+   Every color on the page comes from these variables.
+   ========================================================== */
+
+   :root {
+    --primary: #12355b;      /* deep blue: header text, headings, main buttons */
+    --accent: #f5b45e;       /* warm amber: highlight buttons */
+    --bg: #ffffff;           /* page background */
+    --bg-alt: #f1f5f9;       /* alternate section background */
+    --text: #1f2937;         /* body text */
+    --muted: #5b6676;        /* softer text */
+    --dark: #0d2540;         /* footer and hero background */
+    --radius: 12px;
+  }
+  
+  /* ---------- Reset and base ---------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  
+  body {
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  
+  img { max-width: 100%; display: block; }
+  a { color: var(--primary); }
+  
+  h1, h2, h3 { color: var(--primary); line-height: 1.2; }
+  h1 { font-size: 3rem; font-weight: 800; }
+  h2 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
+  h3 { font-size: 1.25rem; margin: 20px 0 8px; }
+  p  { margin-bottom: 14px; max-width: 65ch; }
+  
+  /* ---------- Layout helpers ---------- */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .narrow    { max-width: 760px; }
+  .section   { padding: 80px 0; }
+  .section-alt { background: var(--bg-alt); }
+  
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: #0d2540; }
+  .btn-accent  { background: var(--accent); color: #1f2937; }
+  .btn-accent:hover { background: #e39a2e; }
+  .btn-outline { border-color: #fff; color: #fff; }
+  .btn-outline:hover { background: rgba(255, 255, 255, 0.12); }
+  
+  /* Visible keyboard focus (accessibility) */
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+  
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .logo { height: 44px; width: auto; }
+  
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--primary); text-decoration: underline; }
+  
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    padding: 110px 0;
+  }
+  .hero h1 { color: #fff; max-width: 16ch; margin-bottom: 20px; }
+  .lead { color: #dbe6f3; font-size: 1.2rem; max-width: 55ch; margin-bottom: 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  
+  /* ---------- Program cards (CSS Grid) ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .card {
+    background: #fff;
+    padding: 32px;
+    border-radius: var(--radius);
+    border-top: 5px solid var(--accent);
+    box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+  }
+  .card h3 { margin-top: 0; }
+  
+  /* ---------- Internship ---------- */
+  .benefits { list-style: none; display: grid; gap: 14px; max-width: 700px; }
+  .benefits li {
+    background: var(--bg-alt);
+    padding: 16px 20px;
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+  }
+  
+  /* ---------- How to apply ---------- */
+  .steps { margin: 0 0 28px 22px; }
+  .steps li { margin-bottom: 10px; padding-left: 6px; }
+  
+  /* ---------- Community ---------- */
+  .community { background: var(--dark); }
+  .community h2, .community p { color: #fff; }
+  
+  /* ---------- Footer ---------- */
+  .site-footer { background: var(--dark); color: #cbd5e1; padding-top: 40px; }
+  .site-footer a { color: #fff; }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .copyright {
+    text-align: center;
+    padding: 24px 20px;
+    margin: 30px 0 0;
+    max-width: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.9rem;
+  }
+  
+  /* ==========================================================
+     RESPONSIVE: tablet
+     ========================================================== */
+  @media (max-width: 900px) {
+    h1 { font-size: 2.4rem; }
+    .nav-links { gap: 14px; font-size: 0.95rem; }
+    .section { padding: 60px 0; }
+  }
+  
+  /* ==========================================================
+     RESPONSIVE: mobile
+     Menu links are hidden to keep the header clean.
+     Logo + Apply button stay visible.
+     ========================================================== */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .hero { padding: 70px 0; }
+    .cards { grid-template-columns: 1fr; }   /* stack cards */
+    .hero-actions .btn { width: 100%; text-align: center; }
+  }
+  
+  /* Respect users who turn off motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+
+  /* ==========================================================
+   TASK 2 ADDITIONS: paste this at the BOTTOM of style.css
+   (below everything from Task 1). It reuses your colors.
+   ========================================================== */
+
+/* Highlights the current page in the menu */
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom: 3px solid var(--accent);
+}
+
+/* Programs page hero is a little shorter than the homepage hero */
+.page-hero { padding: 80px 0; }
+.page-hero h1 { max-width: 20ch; }
+
+/* ---------- Program blocks ----------
+   Two columns on desktop: description left, skills right.
+   Each program gets its own accent color so they are easy to tell apart. */
+.program {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-left: 28px;
+  border-left: 8px solid var(--primary);
+}
+.program-wd { border-left-color: var(--accent); }
+
+.tagline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.program-skills h3 { margin-top: 0; }
+
+/* Skill "chips" */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.skill-list li {
+  background: #fff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.program-wd .skill-list li { border-color: var(--accent); }
+.section-alt .skill-list li { background: #fff; }
+
+/* ---------- Comparison table ---------- */
+.table-wrap { overflow-x: auto; }   /* scrolls sideways on tiny screens only */
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+}
+.compare th, .compare td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+}
+.compare thead th { background: var(--primary); color: #fff; }
+.compare tbody th { color: var(--primary); width: 22%; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .program { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .program { padding-left: 18px; border-left-width: 6px; }
+  .compare { min-width: 520px; }       /* keeps columns readable; table scrolls */
+  .page-hero { padding: 60px 0; }
+}
+
+/* ==========================================================
+   TASK 3 ADDITIONS: paste this at the BOTTOM of style.css
+   (below the Task 1 and Task 2 styles).
+   ========================================================== */
+
+/* ---------- Difficulty label: 4 small bars that fill up ---------- */
+.level {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.bars { display: inline-flex; gap: 3px; }
+.bars i {
+  width: 16px;
+  height: 8px;
+  border-radius: 2px;
+  background: #cbd5e1;          /* empty bar */
+}
+/* fill the first 1, 2, 3 or 4 bars depending on the level */
+.lvl-1 .bars i:nth-child(-n+1),
+.lvl-2 .bars i:nth-child(-n+2),
+.lvl-3 .bars i:nth-child(-n+3),
+.lvl-4 .bars i:nth-child(-n+4) { background: var(--primary); }
+
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
+/* ---------- Day strip: shows where each task falls in 30 days ---------- */
+.glance h3 { margin-top: 56px; }
+.daybar {
+  list-style: none;
+  position: relative;
+  height: 60px;
+  margin: 36px 12px 0;          /* side margin so end dots are not cut off */
+}
+.daybar::before {               /* the track */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 10px;
+  height: 6px;
+  border-radius: 3px;
+  background: #cbd5e1;
+}
+.daybar li {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary);
+  padding-top: 26px;
+}
+.daybar li::before {            /* the dot */
+  content: "";
+  position: absolute;
+  top: 5px; left: 50%;
+  width: 16px; height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--primary);
+}
+.daybar li.end::before { background: #fff; }   /* day 30 = hollow dot */
+
+/* ---------- Vertical timeline ---------- */
+.timeline { list-style: none; margin-top: 36px; }
+.t-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.t-item::before {               /* line connecting one day badge to the next */
+  content: "";
+  position: absolute;
+  left: 30px; top: 32px; bottom: -28px;
+  width: 3px;
+  background: #cbd5e1;
+}
+.t-item:last-child::before { display: none; }
+
+.t-day {
+  position: relative;
+  z-index: 1;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  box-shadow: 0 0 0 5px var(--bg);
+}
+.t-day span { font-size: 0.7rem; }
+.t-day strong { font-size: 1.35rem; }
+
+.t-card {
+  background: #fff;
+  padding: 24px 26px;
+  border-radius: var(--radius);
+  border-left: 5px solid var(--accent);
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.t-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(18, 53, 91, 0.16); }
+.t-num { font-weight: 700; color: var(--muted); margin-bottom: 2px; }
+.t-card h3 { margin: 0 0 10px; }
+.t-card .level { margin-bottom: 12px; }
+
+/* Expandable details (works with no JavaScript) */
+.t-card details { margin-top: 14px; border-top: 1px solid #e5e7eb; padding-top: 12px; }
+.t-card summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary);
+}
+.t-card summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.t-card details p { margin: 10px 0 0; font-size: 0.95rem; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .t-item { grid-template-columns: 48px 1fr; gap: 14px; }
+  .t-item::before { left: 22px; top: 24px; }
+  .t-day { width: 48px; height: 48px; box-shadow: 0 0 0 4px var(--bg); }
+  .t-day span { font-size: 0.6rem; }
+  .t-day strong { font-size: 1.05rem; }
+  .t-card { padding: 18px; }
+  .daybar { margin-left: 8px; margin-right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-card { transition: none; }
+  .t-card:hover { transform: none; }
+}
+
+/* ==========================================================
+   TASK 4 ADDITIONS: paste this at the BOTTOM of style.css
+   (below the Task 1, 2 and 3 styles; it reuses the Task 3
+   timeline, card and difficulty styles).
+   ========================================================== */
+
+/* "30-Day Practical Internship" label in the hero */
+.pill {
+  display: inline-block;
+  background: var(--accent);
+  color: #1f2937;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+/* ---------- Track buttons ---------- */
+.track-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.track-btn {
+  flex: 1 1 240px;
+  padding: 18px 22px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--primary);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.track-btn small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.track-btn:hover { background: var(--bg-alt); transform: translateY(-2px); }
+.track-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* The selected track is filled in, so it is obvious which one is active */
+.track-btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(18, 53, 91, 0.25);
+}
+
+/* ---------- "Currently viewing" banner ---------- */
+.viewing {
+  margin-top: 28px;
+  padding: 18px 22px;
+  background: var(--bg-alt);
+  border-left: 6px solid var(--accent);
+  border-radius: 8px;
+  color: var(--muted);
+}
+.viewing strong {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+/* ---------- Cards slide in each time a track is shown ---------- */
+#timeline .t-item { animation: fadeUp 0.4s ease both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #timeline .t-item { animation: none; }
+  .track-btn { transition: none; }
+}
+
+/* ==========================================================
+   TASK 5 ADDITIONS: paste this at the BOTTOM of style.css
+   (below the Task 1-4 styles). It reuses the difficulty bars
+   (.level) and skill chips (.skill-list) from earlier tasks.
+   ========================================================== */
+
+/* ---------- Filters ---------- */
+.filters {
+  background: var(--bg-alt);
+  padding: 22px;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  display: grid;
+  gap: 18px;
+}
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.filter-label {
+  min-width: 90px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.chip-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.chip-btn:hover { background: #e2e8f0; }
+.chip-btn[aria-pressed="true"] { background: var(--primary); color: #fff; }
+.chip-btn:focus-visible,
+.link-btn:focus-visible,
+.dialog-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.filter-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.result-count { margin: 0; color: var(--muted); font-weight: 500; }
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Challenge cards ---------- */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.c-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  border-top: 6px solid var(--primary);
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.c-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(18, 53, 91, 0.16); }
+.c-card h3 { margin: 0; }
+.c-card p { margin: 0; }
+.c-card .outcome { font-size: 0.95rem; color: var(--muted); }
+.c-card .btn { margin-top: auto; text-align: center; }   /* pushes the button to the bottom */
+
+/* Track colours: blue = Data Analytics, amber = Web Development */
+.track-wd { border-top-color: var(--accent); }
+.track-tag {
+  align-self: flex-start;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--primary);
+  color: #fff;
+}
+.track-wd .track-tag,
+.track-tag.track-wd { background: var(--accent); color: #1f2937; }
+
+.no-results { text-align: center; padding: 50px 20px; }
+.no-results p { margin: 0 auto; }
+[hidden] { display: none !important; }
+
+/* ---------- Details pop-up ---------- */
+dialog {
+  border: none;
+  border-radius: var(--radius);
+  width: calc(100% - 32px);
+  max-width: 640px;
+  padding: 0;
+  color: var(--text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+dialog::backdrop { background: rgba(13, 37, 64, 0.65); }
+.dialog-inner {
+  position: relative;
+  padding: 32px 28px 28px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.dialog-close {
+  position: absolute;
+  top: 10px; right: 14px;
+  width: 40px; height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--primary);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.dialog-close:hover { background: #e2e8f0; }
+#dialog-body .track-tag { margin-bottom: 10px; }
+#dialog-body h2 { font-size: 1.7rem; margin-bottom: 10px; padding-right: 40px; }
+#dialog-body h4 { margin: 20px 0 6px; color: var(--primary); }
+#dialog-body p { margin-bottom: 0; }
+#dialog-body .skill-list { margin-bottom: 0; }
+
+/* ---------- Tablet: keep the 6 menu links on one line ---------- */
+@media (max-width: 1000px) {
+  .nav-links { gap: 12px; font-size: 0.9rem; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .filter-label { width: 100%; }
+  .challenge-grid { grid-template-columns: 1fr; }
+  .dialog-inner { padding: 28px 20px 22px; }
+
+  /* MOBILE MENU FIX: show the page links as a scrollable row under the
+     logo, so phone visitors can still move between pages. */
+  .header-inner { flex-wrap: wrap; gap: 8px 12px; }
+  .header-inner nav { order: 3; width: 100%; }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 6px;
+  }
+  .nav-links a { display: inline-block; padding: 6px 0; }
+  html { scroll-padding-top: 120px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-card, .chip-btn { transition: none; }
+  .c-card:hover { transform: none; }
+}
+
+/* ==========================================================
+   TASK 6 ADDITIONS: paste this at the BOTTOM of style.css
+   (below the Task 1-5 styles). The dashboard also reuses
+   .chip-btn, .filters, .link-btn, .no-results, the pop-up
+   (dialog) and .skill-list from Task 5, so keep those.
+   ========================================================== */
+
+/* Fix: real <button> elements need these to match your link-style buttons.
+   This also improves the "View Challenge" buttons from Task 5. */
+button.btn { font: inherit; font-weight: 700; cursor: pointer; }
+.btn-sm { padding: 8px 16px; font-size: 0.9rem; }
+.btn-ghost { background: #fff; border-color: var(--primary); color: var(--primary); }
+.btn-ghost:hover { background: var(--bg-alt); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Welcome ---------- */
+.current-task { color: #fff; font-weight: 700; margin: 18px 0 0; max-width: none; }
+.sample-note { color: #9fb4cc; font-size: 0.85rem; margin: 10px 0 0; }
+
+/* ---------- Progress ---------- */
+.progress-card {
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+}
+.progress-summary { font-size: 1.4rem; margin-bottom: 14px; }
+.progress-summary strong { color: var(--primary); font-size: 1.8rem; }
+.progress {
+  height: 22px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.5s ease;
+}
+.progress-percent { margin: 14px 0 4px; font-size: 1.1rem; }
+.progress-percent strong { color: var(--primary); font-size: 2rem; }
+.remaining { margin: 0; color: var(--muted); font-weight: 700; }
+.progress-message { margin: 12px 0 0; color: #1b7f5c; font-weight: 700; }
+.progress-message:empty { display: none; }
+
+/* ---------- Task cards ---------- */
+.tracker-head { display: flex; justify-content: space-between; align-items: center; }
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.d-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  border-top: 6px solid #94a3b8;             /* default: Not Started */
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+}
+.d-card h3 { margin: 0; }
+.d-card p { margin: 0; }
+.d-card .num { color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
+
+/* Three different looks for the three statuses */
+.d-card.status-completed   { border-top-color: #1b7f5c; background: #f6fbf8; }
+.d-card.status-in-progress { border-top-color: var(--accent); box-shadow: 0 6px 20px rgba(242, 165, 65, 0.35); }
+.d-card.status-not-started { border-top-color: #94a3b8; }
+
+.status-badge {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.badge-completed   { background: #1b7f5c; color: #fff; }
+.badge-in-progress { background: var(--accent); color: #1f2937; }
+.badge-not-started { background: #e2e8f0; color: #374151; }
+
+/* ---------- Challenge Hub preview ---------- */
+.promo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--radius);
+  border-left: 6px solid var(--accent);
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+}
+.promo h2 { margin-bottom: 8px; }
+.promo p { margin: 0; }
+
+/* ---------- Technology Explorer ---------- */
+.tech-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+.tech-panel {
+  background: var(--bg-alt);
+  padding: 28px;
+  border-radius: var(--radius);
+  border-left: 6px solid var(--primary);
+}
+.tech-panel h3 { margin-top: 0; font-size: 1.6rem; }
+.tech-tagline { font-weight: 700; color: var(--primary); }
+.tech-panel h4 { margin: 18px 0 6px; color: var(--primary); }
+.tech-panel ul.plain { margin: 0 0 18px 20px; }
+.tech-panel ul.plain li { margin-bottom: 6px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .task-grid { grid-template-columns: 1fr; }
+  .progress-card, .tech-panel, .promo { padding: 20px; }
+  .promo .btn { width: 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill { transition: none; }
+}
+
+
+  

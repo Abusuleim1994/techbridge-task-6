@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge Hub | TechBridge</title>
+  <meta name="description" content="Explore practical Data Analytics and Web Development challenges from the TechBridge Challenge Hub.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER (same on every page) ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="TechBridge logo" class="logo">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="roadmap.html">Internship Roadmap</a></li>
+          <li><a href="challenges.html" class="active" aria-current="page">Challenges</a></li>
+	        <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- TODO: paste the same application form link you used before -->
+      <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" class="btn btn-primary" target="_blank" rel="noopener">Apply now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== 1. INTRODUCTION ========== -->
+    <section class="hero page-hero">
+      <div class="container">
+        <h1>TechBridge Challenge Hub</h1>
+        <p class="lead">
+          Explore practical challenges designed to help TechBridge interns apply their skills
+          and gain real-world experience in Data Analytics and Web Development.
+          Filter by track or difficulty, then open any challenge to see what it involves.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 2. FILTERS + CHALLENGES ========== -->
+    <section class="section">
+      <div class="container">
+
+        <!-- JavaScript listens to these buttons.
+             data-filter says which filter, data-value says which choice -->
+        <div class="filters">
+          <div class="filter-group" role="group" aria-label="Filter by track">
+            <span class="filter-label">Track</span>
+            <button type="button" class="chip-btn" data-filter="track" data-value="All" aria-pressed="true">All</button>
+            <button type="button" class="chip-btn" data-filter="track" data-value="Data Analytics" aria-pressed="false">Data Analytics</button>
+            <button type="button" class="chip-btn" data-filter="track" data-value="Web Development" aria-pressed="false">Web Development</button>
+          </div>
+
+          <div class="filter-group" role="group" aria-label="Filter by difficulty">
+            <span class="filter-label">Difficulty</span>
+            <button type="button" class="chip-btn" data-filter="difficulty" data-value="All" aria-pressed="true">All</button>
+            <button type="button" class="chip-btn" data-filter="difficulty" data-value="Beginner" aria-pressed="false">Beginner</button>
+            <button type="button" class="chip-btn" data-filter="difficulty" data-value="Intermediate" aria-pressed="false">Intermediate</button>
+            <button type="button" class="chip-btn" data-filter="difficulty" data-value="Advanced" aria-pressed="false">Advanced</button>
+          </div>
+
+          <div class="filter-footer">
+            <p id="result-count" class="result-count" aria-live="polite"></p>
+            <button type="button" id="reset-filters" class="link-btn">Reset filters</button>
+          </div>
+        </div>
+
+        <noscript><p>Please turn on JavaScript to browse the challenges.</p></noscript>
+
+        <!-- JavaScript fills this grid with challenge cards -->
+        <div id="challenge-grid" class="challenge-grid"></div>
+
+        <!-- Shown by JavaScript when no challenge matches the filters -->
+        <div id="no-results" class="no-results" hidden>
+          <h3>No challenges found</h3>
+          <p>Try a different track or difficulty.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== 3. CALL TO ACTION ========== -->
+    <section class="section community">
+      <div class="container narrow">
+        <h2>Ready to take on real challenges?</h2>
+        <p>Apply for the TechBridge Internship and start building practical experience.</p>
+        <div class="hero-actions">
+          <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" class="btn btn-accent" target="_blank" rel="noopener">Apply for TechBridge Internship</a>
+          <a href="roadmap.html" class="btn btn-outline">View the internship roadmap</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== CHALLENGE DETAILS (pop-up) ==========
+       <dialog> is a built-in pop-up. JavaScript fills it and opens it.
+       Pressing Esc closes it. -->
+  <dialog id="challenge-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-inner">
+      <button type="button" id="dialog-close" class="dialog-close" aria-label="Close challenge details">&times;</button>
+      <div id="dialog-body"></div>
+    </div>
+  </dialog>
+
+  <!-- ========== FOOTER (same on every page) ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TechBridge</strong> by Baselink Services Limited
+        <p>Bridging Learning to Real-World Experience</p>
+      </div>
+      <p><a href="mailto:techbridgebaslink@gmail.com">techbridgebaslink@gmail.com</a></p>
+    </div>
+    <p class="copyright">&copy; 2026 TechBridge by Baselink Services Limited</p>
+  </footer>
+
+  <script src="challenges.js"></script>
+</body>
+</html>
